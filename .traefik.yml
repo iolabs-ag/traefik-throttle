@@ -1,0 +1,12 @@
+﻿displayName: RateLimiterAndThrottle
+type: middleware
+
+import: github.com/iolabs-ag/ratelimiter
+
+summary: Limit concurrent requests routed to services by delaying (rather than rejecting) requests over the limit. Useful for underpowered servers.
+
+testData:
+  maxRequests: 100
+  maxQueue: 100
+  retryCount: 3
+  retryDelay: 100ms
