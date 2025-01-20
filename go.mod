@@ -1,4 +1,4 @@
-module github.com/iolabs-ag/traefik-rate-limiter
+module github.com/iolabs-ag/traefik-throttle
 
 go 1.23.4
 

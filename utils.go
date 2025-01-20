@@ -1,4 +1,4 @@
-﻿package ratelimiter
+﻿package traefik_throttle
 
 import (
 	"fmt"

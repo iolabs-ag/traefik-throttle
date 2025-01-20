@@ -1,4 +1,4 @@
-﻿displayName: RateLimiterAndThrottle
+﻿displayName: Throttle And Rate Limiter
 type: middleware
 
 import: github.com/iolabs-ag/traefik-throttle
