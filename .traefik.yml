@@ -1,5 +1,6 @@
 ﻿displayName: Throttle And Rate Limiter
 type: middleware
+iconPath: .assets/io.png
 
 import: github.com/iolabs-ag/traefik-throttle
 
