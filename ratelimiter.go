@@ -140,6 +140,7 @@ func (t *Throttle) applyUserLimits(rw http.ResponseWriter, endpoint, method, use
 
 	if userState.requestsCount >= userState.maxRequests {
 		log(LogLevelDebug, fmt.Sprintf("User %s exceeded max requests", userID), nil)
+		rw.Header().Add("Access-Control-Allow-Origin", "*")
 		rw.WriteHeader(http.StatusTooManyRequests)
 		return false
 	}
@@ -198,6 +199,7 @@ func (t *Throttle) applyRateLimiting(rw http.ResponseWriter, req *http.Request, 
 		if state.queueCount >= state.maxQueue {
 			log(LogLevelDebug, "Queue limit reached for endpoint", nil)
 			state.mutex.Unlock()
+			rw.Header().Add("Access-Control-Allow-Origin", "*")
 			rw.WriteHeader(http.StatusTooManyRequests)
 			return
 		}
@@ -214,6 +216,7 @@ func (t *Throttle) applyRateLimiting(rw http.ResponseWriter, req *http.Request, 
 	}
 
 	log(LogLevelDebug, "Request denied after all retry attempts", nil)
+	rw.Header().Add("Access-Control-Allow-Origin", "*")
 	rw.WriteHeader(http.StatusTooManyRequests)
 }
 
